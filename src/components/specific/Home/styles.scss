@@ -1,0 +1,228 @@
+@import '../../../global/scss/config';
+
+.home-page {
+  @include max-size;
+
+  &-content {
+    @include flex(column, flex-start, center);
+    width: 100%;
+
+    .hero {
+      @extend .content-split-horizontal;
+      @include flex(column, flex-start, flex-start !important);
+      @include mq-screen-gt($screen-lg-min) {
+        margin-bottom: 0 !important;
+      }
+
+      .right {
+        @include background-image-center;
+
+        @include mq-screen-lt($screen-lg-min) {
+          display: none;
+        }
+
+        @include box-shadow-2;
+        border-radius: 10px;
+        flex: 1 1 30%;
+        min-height: 600px;
+      }
+
+      .left {
+        margin-bottom: 0 !important;
+      }
+    }
+
+    .popular-work {
+      @include scale-max-content-width;
+      @include flex-center(column);
+      text-align: center;
+      margin-bottom: 6vw;
+      z-index: 1000;
+      margin-top: auto;
+
+
+    }
+  }
+
+  .full-width {
+    @include flex(column, flex-start, center);
+    @include pad-box(9vw 24px 0 24px);
+    @include max-size;
+    position: relative;
+
+    &.margin {
+      margin-bottom: 13vw;
+    }
+
+    &.dark {
+      background-color: $secondary-background-color;
+    }
+
+    .bg-skewed {
+      z-index: 0;
+      background-color: $secondary-background-color;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: -5.3vw;
+      transform-origin: 0;
+      transform: skewY(-5deg);
+      transition: transform 0.3s, bottom 0.3s;
+    }
+  }
+}
+
+.custom-static-field {
+  @include flex(column, flex-start, flex-start);
+  margin-bottom: 12px;
+  text-align: left;
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+}
+
+.heading-section-item {
+  @include flex(column, flex-start, center);
+
+  &.light {
+    .title {
+      color: $primary-button-bg-color;
+    }
+
+    .subtitle {
+      color: white;
+    }
+  }
+
+  .descriptor {
+    @include font(12px, 600, 0.05em, $medium-gray);
+    text-transform: uppercase;
+  }
+
+  .title {
+    @include font(54px, 700, 0.01em, $primary-text-color);
+    line-height: 1.2em;
+    font-family: Sarabun, sans-serif;
+
+    @include mq-screen-lt($screen-md-min) {
+      @include font(48px, 600, 0em, $primary-text-color);
+    }
+    @include mq-screen-lt($screen-sm-min) {
+      @include font(36px, 600, 0em, $primary-text-color);
+    }
+
+    transition: all 0.2s ease-in-out;
+    max-width: 700px;
+    margin-bottom: 24px;
+  }
+
+  .subtitle {
+    font-family: 'Open Sans', sans-serif;
+    @include font(18px, 400, 0em, $dark-gray);
+    @include mq-screen-lt($screen-sm-min) {
+      @include font(14px, 400, 0em, $dark-gray);
+    }
+    max-width: 700px;
+    margin-bottom: 24px;
+  }
+}
+
+.content-split-horizontal {
+
+  @include flex(row, flex-start, center);
+  @include max-size;
+  @include scale-max-content-width;
+  z-index: 1000;
+
+
+  @include mq-screen-lt($screen-lg-min) {
+    @include flex(column, flex-start, center);
+    text-align: center;
+  }
+
+  .left {
+    @extend .heading-section-item;
+    @include flex(column, flex-start, flex-start !important);
+
+    @include mq-screen-lt($screen-lg-min) {
+      @include flex(column, center, center !important);
+      text-align: center;
+      margin: 0 0 5vw 0;
+    }
+
+    flex: 1 1 50%;
+    height: 100%;
+    margin-right: 24px;
+  }
+
+  .right {
+
+  }
+
+}
+
+.flex-wrapped-2 {
+  @include scale-max-content-width;
+  @include flex(row, space-between, flex-start);
+  @include pad-box(0);
+  flex-wrap: wrap;
+  list-style: none;
+  margin-top: 72px;
+  width: 100%;
+
+  @include mq-screen-lt($screen-md-min) {
+    @include flex(column, flex-start, center);
+    flex-wrap: nowrap;
+  }
+
+  .item {
+
+    flex: 0 1 48%;
+
+    .cell {
+      margin-bottom: 36px;
+    }
+
+  }
+}
+
+.techs {
+
+  @include scale-max-content-width;
+  @include flex(row, flex-start, center);
+
+  .type {
+    @include flex(column, flex-start, center);
+    width:100%;
+
+    .title {
+      margin-bottom:12px;
+    }
+
+    .icons {
+      @include flex(row, flex-start, flex-start);
+      .single-icon{
+          @include flex-center(column);
+
+          margin-right: 24px;
+
+          &:last-of-type{
+            margin-right: 0;
+          }
+          .icon{
+            @include flex-center(row);
+
+            margin-bottom: 3px;
+          }
+          .text{
+            font-weight: 300;
+            font-size: 12px;
+          }
+        }
+    }
+  }
+
+
+}

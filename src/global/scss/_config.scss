@@ -1,0 +1,45 @@
+@import 'colors';
+@import 'keyframes';
+@import 'mixins';
+@import 'constants';
+
+$h4-header: #6f6f6f;
+$h4-subtext: #afafaf;
+
+$primary-background-color: white;
+$secondary-background-color: #282c34;
+$primary-border-color:#e9e9e9;
+
+$primary-text-color: #313131;
+
+@mixin border($border-style){
+  border-style: $border-style;
+  border-width: 1px;
+  border-color: $primary-border-color;
+}
+
+@mixin scale-max-content-width(){
+  width:100%;
+  max-width: $screen-lg-min;
+}
+
+$highlighted-text: #6db6f5;
+$highlighted-background: $light-blue-300;
+
+$error-color: $orange;
+
+$primary-button-bg-color: #6db6f5;
+$primary-button-text-color: white;
+
+@mixin box-shadow-1(){
+  @include box-shadow(1px 1px 10px 0 rgba(0,0,0,0.08));
+  z-index: $z-index-raised;
+}
+
+@mixin box-shadow-2(){
+  @include box-shadow((0 7px 14px rgba(50, 50, 93, .1), 0 3px 6px rgba(0, 0, 0, .08)));
+  z-index: $z-index-raised;
+}
+
+
+

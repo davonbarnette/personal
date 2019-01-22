@@ -1,0 +1,27 @@
+@import '../../../../global/scss/config';
+
+.project-card {
+  @include background-image-center;
+  @include box-shadow-2;
+
+  @include mq-screen-lt($screen-md-min){
+    width:100%;
+    padding-top: 50%;
+  }
+
+  padding-top:32%;
+  flex:0 1 48%;
+  margin-bottom:36px;
+  border-radius:5px;
+  transition: all 0.2s ease-in;
+
+  &:hover{
+    cursor: pointer;
+    transform:translate(0, -6px);
+
+  }
+
+  &:last-of-type {
+    margin-right:0;
+  }
+}

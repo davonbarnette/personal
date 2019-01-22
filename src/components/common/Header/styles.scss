@@ -1,0 +1,70 @@
+@import '../../../global/scss/config';
+
+.header-component {
+  @include flex(row, center, center);
+  @include pad-box(18px 24px);
+  background: $primary-background-color;
+  width: 100%;
+
+  &-content {
+    @include flex(row, space-between, center);
+    @include scale-max-content-width;
+    .left-nav {
+      @include font(16px, 300, 0em, #505050);
+      line-height: 1em;
+
+      .second {
+        font-weight: 600;
+      }
+    }
+
+    .right-nav {
+      @include flex(row, center, center);
+      margin-left: auto;
+      .full-text-nav {
+        @include flex(row, flex-end, center);
+        @include font(12px, 300, 0.2em, $medium-gray);
+        @include mq-screen-lt($screen-md-min) {
+          display:none;
+        }
+      }
+      .hamburger-nav{
+        @include mq-screen-gt($screen-md-min) {
+          display:none;
+        }
+      }
+    }
+  }
+
+
+}
+
+.navigate-to {
+  @include flex(row, flex-start, center);
+  transition: all 0.3s;
+  margin-right: 24px;
+  cursor: pointer;
+
+  &:last-of-type{
+    margin-right:0;
+  }
+
+  &.selected {
+    &:hover {
+      cursor: default;
+    }
+
+    & > .text {
+      color: #505050;
+      font-weight: 600;
+    }
+  }
+
+  .text {
+    @include font(12px, 500, 0em, #cccccc);
+    text-transform: uppercase;
+    line-height: 1em;
+    margin-left: 12px;
+    transition: all 0.3s;
+  }
+}
