@@ -24,14 +24,12 @@
       .full-text-nav {
         @include flex(row, flex-end, center);
         @include font(12px, 300, 0.2em, $medium-gray);
-        @include mq-screen-lt($screen-md-min) {
-          display:none;
-        }
+        //@include mq-screen-lt($screen-md-min) {
+        //  display:none;
+        //}
       }
       .hamburger-nav{
-        @include mq-screen-gt($screen-md-min) {
-          display:none;
-        }
+        display:none;
       }
     }
   }

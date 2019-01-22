@@ -24,8 +24,8 @@ const NavButton = (props:NavButtonProps) => {
     let containerArgs = { className, onClick };
     return (
         <span {...containerArgs as any} >
-            {/*{icon ? icon(color) : null}*/}
-            <div className='text'>{label}</div>
+            {icon ? icon(color) : null}
+            {/*<div className='text'>{label}</div>*/}
         </span>
     )
 };
@@ -36,26 +36,20 @@ interface HeaderProps extends RouteComponentProps {
 
 class Header extends Component<HeaderProps, any> {
 
-    handleOnNavigateClick = (e:MouseEvent,path:string) => {
-        e.stopPropagation();
-        BrowserRouter.push(path);
-    };
-
-    isCurrentPath(path:string){
-        const { pathname } = this.props.location;
-        return pathname.startsWith(path);
-    }
-
     get navItems() {
 
         const {headerItems} = this.props;
 
         return headerItems.map((item:SingleHeaderItem, key:number) => {
-            const { path, label, icon } = item;
+            const { path, label, icon, redirect } = item;
 
-            let onClick = (e:MouseEvent) => this.handleOnNavigateClick(e, path);
-            let selected = this.isCurrentPath(path);
-            let args = {key, onClick, selected, icon, label};
+            let onClick = (e:MouseEvent) => {
+                e.stopPropagation();
+                if (redirect) location.href = redirect;
+                else if (path) BrowserRouter.push(path);
+            };
+            let selected = path ? this.props.location.pathname.startsWith(path) : false;
+            let args = {key, onClick, selected, icon, label, redirect};
 
             return <NavButton {...args}/>
         })

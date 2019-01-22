@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {observer} from "mobx-react";
+import * as Icon from 'react-feather';
 
 import './styles.scss';
 import Button from "../../common/Button/Button";
@@ -7,16 +8,18 @@ import AppStore from "../../../data/App/Store";
 import ProjectCard from "./ProjectCard/ProjectCard";
 import BrowserRouter, {BrowserRoutes} from "../../../data/Routers/BrowserRouter";
 import {Scrollable} from "../../common/Scrollable/Scrollable";
-import StaticField from "../../common/StaticField/StaticField";
+
 import {
+    CSSSVG,
     ExpressSVG,
-    FirebaseSVG,
+    FirebaseSVG, HTMLSVG, JSSVG,
     MobXSVG,
     MongoDBSVG,
-    NodeSVG,
+    NodeSVG, PythonSVG,
     ReactSVG,
-    ReduxSVG, SassSVG
+    ReduxSVG, SassSVG, TSSVG
 } from "../../../global/managers/SVGManager";
+import {Flex} from "../../common/Flex/Flex";
 
 interface HomePageProps {
 
@@ -30,6 +33,18 @@ const fields = [
 ];
 
 const FRONTEND = {
+    JAVASCRIPT: {
+        icon: <JSSVG/>,
+        name: 'JavaScript'
+    },
+    HTML: {
+        icon: <HTMLSVG/>,
+        name: 'HTML'
+    },
+    CSS: {
+        icon: <CSSSVG/>,
+        name: 'CSS'
+    },
     REACT: {
         icon: <ReactSVG/>,
         name: 'React'
@@ -38,20 +53,16 @@ const FRONTEND = {
         icon: <ReduxSVG/>,
         name: 'Redux'
     },
-    MOBX: {
-        icon: <MobXSVG/>,
-        name: 'MobX'
-    },
-    SASS: {
-        icon: <SassSVG/>,
-        name: 'Sass'
-    },
 };
 
 const BACKEND = {
     NODEJS: {
         icon: <NodeSVG/>,
         name: 'Node.js'
+    },
+    PYTHON: {
+        icon: <PythonSVG/>,
+        name: 'Python'
     },
     FIREBASE: {
         icon: <FirebaseSVG/>,
@@ -78,14 +89,6 @@ class HomePage extends Component<HomePageProps, any> {
         if (!projects || projects.length === 0) return null;
 
         return projects.map(project => <ProjectCard key={project.id} workId={project.id}/>)
-    }
-
-    get fields(){
-        return fields.map(field => (
-            <StaticField className='custom-static-field' label={field.label}>
-                {field.value}
-            </StaticField>
-        ))
     }
     getIcons(object:any){
         let animationDelay = 1;
@@ -141,28 +144,40 @@ class HomePage extends Component<HomePageProps, any> {
                                 <h2 className='title'>About Me</h2>
                                 <h3 className='subtitle'></h3>
                             <Button enabled={true} onClick={() => BrowserRouter.push(BrowserRoutes.work)}>
-                            DOWNLOAD .PDF RESUME
-                        </Button>
+                                <Flex alignItems='center'><Icon.DownloadCloud style={{marginRight:12}}/>DOWNLOAD .PDF RESUME</Flex>
+                            </Button>
                         </section>
                         <section className='flex-wrapped-2'>
                             <div className='item'>
                                 <div className='cell'>
-                                    <h3>Education</h3>
-                                    <div><strong>BS in Biology, Georgia State University</strong>. I originally planned to be a doctor, but after shadowing doctors and finally getting a full grasp of what I'd be diving into, I decided that I'd follow my more immediate passions, design and development.</div>
+                                    <Flex alignItems='center'>
+                                        <Icon.Book size={22} color='#3a3a3a' style={{marginRight:12}}/>
+                                        <h3>Education</h3>
+                                    </Flex>
+                                    <p><strong>BS in Biology, Georgia State University</strong>. I originally planned to be a doctor, but after shadowing doctors and finally getting a full grasp of what I'd be diving into, I decided that I'd follow my more immediate passions, design and development.</p>
                                 </div>
                                 <div className='cell'>
-                                    <h3>Work Experience</h3>
-                                    <div><strong>SkillCapped (2014-2017) | OsmosisAI (2018-now)</strong>. Lead Designer & Full Stack Engineering. Since I can design and code, I've been in charge of concept (UI/UX) all the way up to execution (React/Node). This is most likely where I bring the most value - I understand both roles, and can reason through how they should connect.</div>
+                                    <Flex alignItems='center'>
+                                        <Icon.Briefcase color='#3a3a3a' style={{marginRight:12}}/>
+                                        <h3>Work Experience</h3>
+                                    </Flex>
+                                    <p><strong>SkillCapped (2014-2017) | OsmosisAI (2018-now)</strong>. Lead Designer & Full Stack Engineering. I've been in charge of concept (UI/UX) all the way up to execution (React/Node). This is most likely where I bring the most value - I understand both roles, and can reason through how they should connect.</p>
                                 </div>
                             </div>
                             <div className='item'>
                                 <div className='cell'>
-                                    <h3>Full Stack Engineering</h3>
-                                    <div><strong>JavaScript | Python | HTML | CSS</strong>. I can create any application from the ground up, from design, to backend, to frontend, and understand how all those concepts tie together. Historically, I've been a one-man-show, for projects and both of my jobs.</div>
+                                    <Flex alignItems='center'>
+                                        <Icon.Code color='#3a3a3a' style={{marginRight:12}}/>
+                                        <h3>Full Stack Engineering</h3>
+                                    </Flex>
+                                    <p><strong>JavaScript | Python | HTML | CSS</strong>. I can create any application from the ground up, from design, to backend, to frontend, and understand how all those concepts tie together. Historically, I've been a one-man-show, for projects and both of my jobs.</p>
                                 </div>
                                 <div className='cell'>
-                                    <h3>Design</h3>
-                                    <div><strong>Adobe Suite CC</strong>. I started off creating YouTube videos, using Premiere, After Effects, and Photoshop. This gave me the background I needed to create meaningful user experiences, beautiful animations, and pixel perfect design.</div>
+                                    <Flex alignItems='center'>
+                                        <Icon.Grid color='#3a3a3a' style={{marginRight:12}}/>
+                                        <h3>Design</h3>
+                                    </Flex>
+                                    <p><strong>Adobe Suite CC</strong>. I started off creating YouTube videos, using Premiere, After Effects, and Photoshop. This gave me the background I needed to create meaningful user experiences, beautiful animations, and pixel perfect design.</p>
                                 </div>
                             </div>
                         </section>

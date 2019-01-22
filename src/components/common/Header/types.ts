@@ -1,5 +1,6 @@
 export interface SingleHeaderItem {
-    path:string,
+    path?:string,
+    redirect?:string,
     label:string
     icon: (...args:any) => void
 }

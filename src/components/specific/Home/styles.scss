@@ -9,8 +9,12 @@
 
     .hero {
       @extend .content-split-horizontal;
-      @include flex(column, flex-start, flex-start !important);
+      @include flex(column, flex-start, center);
+
+      margin-bottom: 13vw;
+
       @include mq-screen-gt($screen-lg-min) {
+        @include flex(column, flex-start, flex-start);
         margin-bottom: 0 !important;
       }
 
@@ -97,7 +101,8 @@
   }
 
   .descriptor {
-    @include font(12px, 600, 0.05em, $medium-gray);
+    @include font(12px, 600, 0.1em, $medium-gray);
+    font-family: Roboto, sans-serif;
     text-transform: uppercase;
   }
 
@@ -131,7 +136,7 @@
 
 .content-split-horizontal {
 
-  @include flex(row, flex-start, center);
+  @include flex(row, flex-start, flex-start);
   @include max-size;
   @include scale-max-content-width;
   z-index: 1000;
@@ -180,8 +185,18 @@
   .item {
 
     flex: 0 1 48%;
-
     .cell {
+
+      & h3 {
+        @include font(24px, 600, 0.025em, $dark-gray);
+        font-family: Roboto, sans-serif;
+        margin: 0;
+      }
+      & p {
+        //@include font(14px, 500, 0.025em, $dark-gray);
+        font-family: "Open Sans", sans-serif;
+        margin-bottom:12px;
+      }
       margin-bottom: 36px;
     }
 
@@ -193,34 +208,54 @@
   @include scale-max-content-width;
   @include flex(row, flex-start, center);
 
+  @include mq-screen-lt($screen-md-min){
+    @include flex(column, flex-start, center);
+  }
+
   .type {
     @include flex(column, flex-start, center);
+
+    @include mq-screen-lt($screen-md-min) {
+      @include flex(column, flex-start, flex-start);
+      margin-bottom:24px;
+
+      &:last-of-type {
+        margin-bottom:0;
+      }
+    }
+
     width:100%;
 
     .title {
+      @include font(24px, 500, 0, $dark-gray);
+      font-family: Roboto, sans-serif;
       margin-bottom:12px;
     }
 
     .icons {
       @include flex(row, flex-start, flex-start);
-      .single-icon{
-          @include flex-center(column);
 
-          margin-right: 24px;
+      @include mq-screen-lt($screen-md-min) {
+        flex-wrap:wrap;
+      }
 
-          &:last-of-type{
-            margin-right: 0;
-          }
-          .icon{
-            @include flex-center(row);
+      .single-icon {
+        @include flex-center(column);
+        margin: 0 24px 24px 0;
 
-            margin-bottom: 3px;
-          }
-          .text{
-            font-weight: 300;
-            font-size: 12px;
-          }
+        &:last-of-type {
+          margin-right: 0;
         }
+
+        .icon {
+          @include flex-center(row);
+          margin-bottom: 3px;
+        }
+
+        .text {
+          @include font(14px, 400, 0, $medium-gray);
+        }
+      }
     }
   }
 
