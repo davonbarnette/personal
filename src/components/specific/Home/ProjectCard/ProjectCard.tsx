@@ -18,7 +18,7 @@ class ProjectCard extends Component<ProjectCardProps, any> {
     }
     get backgroundImage(){
         if (!this.project) return undefined;
-        return `url(${this.project.banner})`;
+        return this.project.banner;
     }
 
     onProjectCardClick = () => {
@@ -30,9 +30,10 @@ class ProjectCard extends Component<ProjectCardProps, any> {
         if (!this.project) return null;
 
         return (
-            <li className='project-card' style={{backgroundImage:this.backgroundImage}}>
-
+            <li className='project-card'>
+                <img className='project-card-image' src={this.backgroundImage} onClick={this.onProjectCardClick}/>
             </li>
+
         )
     }
 }

@@ -20,6 +20,7 @@ import {
     ReduxSVG, SassSVG, TSSVG
 } from "../../../global/managers/SVGManager";
 import {Flex} from "../../common/Flex/Flex";
+import AppActions from "../../../data/App/Actions";
 
 interface HomePageProps {
 
@@ -100,6 +101,9 @@ class HomePage extends Component<HomePageProps, any> {
             return <SingleIcon key={value.name} data={value} animationDelay={animationDelay}/>
         });
 	}
+	onDownloadPDFClick = () => {
+        AppActions.downloadResume();
+    };
 
     render(){
         return(
@@ -143,7 +147,7 @@ class HomePage extends Component<HomePageProps, any> {
                             <div className='descriptor'>A little</div>
                                 <h2 className='title'>About Me</h2>
                                 <h3 className='subtitle'></h3>
-                            <Button enabled={true} onClick={() => BrowserRouter.push(BrowserRoutes.work)}>
+                            <Button enabled={true} onClick={this.onDownloadPDFClick}>
                                 <Flex alignItems='center'><Icon.DownloadCloud style={{marginRight:12}}/>DOWNLOAD .PDF RESUME</Flex>
                             </Button>
                         </section>
@@ -183,11 +187,11 @@ class HomePage extends Component<HomePageProps, any> {
                         </section>
                         <section className='techs'>
                             <div className='type'>
-                                <div className='title'>Frontend</div>
+                                <div className='title'>Recent Frontend Tech</div>
                                 <div className='icons'>{this.getIcons(FRONTEND)}</div>
                             </div>
                             <div className='type'>
-                                <div className='title'>Backend</div>
+                                <div className='title'>Recent Backend Tech</div>
                                 <div className='icons'>{this.getIcons(BACKEND)}</div>
                             </div>
                         </section>

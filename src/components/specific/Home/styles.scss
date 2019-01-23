@@ -187,6 +187,9 @@
     flex: 0 1 48%;
     .cell {
 
+      & > div  {
+        margin-bottom:12px;
+      }
       & h3 {
         @include font(24px, 600, 0.025em, $dark-gray);
         font-family: Roboto, sans-serif;
