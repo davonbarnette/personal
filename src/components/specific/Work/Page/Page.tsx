@@ -8,6 +8,7 @@ import AppStore from "../../../../data/App/Store";
 import {Flex} from "../../../common/Flex/Flex";
 import {Scrollable} from "../../../common/Scrollable/Scrollable";
 import ContentHeader from "./ContentHeader";
+import ProjectPage from "../ProjectPage/ProjectPage";
 
 
 interface WorkPageProps extends RouteComponentProps<{workId:string}> {
@@ -25,11 +26,13 @@ class WorkPage extends Component<WorkPageProps, any> {
             <Flex className='work-content' flexDirection='column'>
                 <ContentHeader workId={workId}/>
                 <Scrollable scrollY>
-                    <Switch>
-                        {/*
-                            Some Router Content...
-                        */}
-                    </Switch>
+                    {/*<Switch>*/}
+                        {/*/!**/}
+                            {/*Some Router Content...*/}
+                        {/**!/*/}
+                    {/*</Switch>*/}
+                    <ProjectPage projectId={workId}/>
+
                 </Scrollable>
             </Flex>
         )

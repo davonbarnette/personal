@@ -45,7 +45,15 @@ class Header extends Component<HeaderProps, any> {
 
             let onClick = (e:MouseEvent) => {
                 e.stopPropagation();
-                if (redirect) location.href = redirect;
+                if (redirect) {
+                    let link = document.createElement("a");
+                    link.href = redirect;
+                    link.target = '_blank';
+
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                }
                 else if (path) BrowserRouter.push(path);
             };
             let selected = path ? this.props.location.pathname.startsWith(path) : false;

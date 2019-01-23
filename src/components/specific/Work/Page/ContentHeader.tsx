@@ -31,9 +31,9 @@ class WorkContentHeader extends Component<WorkContentHeaderProps, any> {
                         </div>
                     </div>
                 </section>
-                <section className='tabs-container'>
-                    <Tabs className='work-header-tabs' workId={workId}/>
-                </section>
+                {/*<section className='tabs-container'>*/}
+                    {/*<Tabs className='work-header-tabs' workId={workId}/>*/}
+                {/*</section>*/}
             </Flex>
         )
     }

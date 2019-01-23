@@ -16,7 +16,6 @@
       .header {
         @include flex(row, center, center);
         @include pad-box(24px);
-        @include border(none none solid none);
         background: white;
         position: relative;
         width: 100%;
