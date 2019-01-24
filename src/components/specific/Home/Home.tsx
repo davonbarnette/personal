@@ -83,7 +83,11 @@ const BACKEND = {
 class HomePage extends Component<HomePageProps, any> {
 
     get titleBackground(){
-        return `url("https://www.dropbox.com/s/9dntic2phc3xnxn/DSC_5470.jpg?raw=1")`
+        let heroBanner = AppStore.assetLocations.getById('hero_banner');
+        if (heroBanner){
+            return `url(${heroBanner.url})`
+        }
+        return undefined;
     }
     get projects(){
         let projects = AppStore.work.all;
@@ -117,9 +121,11 @@ class HomePage extends Component<HomePageProps, any> {
                                 <h3 className='subtitle'>Currently designing and developing applications for OsmosisAI,
                                     a company centered around Vision AI for enterprise.
                                 </h3>
+                                <Button enabled={true} onClick={() => AppActions.redirect('mailto:davonbarnette@gmail.com', false)}>
+                                    <Flex alignItems='center'><Icon.Mail style={{marginRight: 12}}/>GET IN TOUCH</Flex>
+                                </Button>
                             </div>
                             <div className='right' style={{backgroundImage: this.titleBackground}}/>
-
                         </section>
                     </div>
                     <div className='full-width'>
@@ -127,7 +133,7 @@ class HomePage extends Component<HomePageProps, any> {
                         <section className='popular-work'>
                             <div className='heading-section-item light'>
                                 <h2 className='title'>Featured Work</h2>
-                                <h3 className='subtitle' style={{marginBottom:48}}>
+                                <h3 className='subtitle'>
                                     Here are some of my recent works. Click on the images to get a deeper dive into how I approached these projects, or what my responsibilities were.
                                 </h3>
                             </div>
@@ -136,11 +142,10 @@ class HomePage extends Component<HomePageProps, any> {
                             </ul>
                         </section>
                     </div>
-                    <div className='full-width margin'>
-                        <section className='heading-section-item'>
+                    <div className='full-width margin' style={{marginTop:48}}>
+                        <section className='heading-section-item left-aligned'>
                             <div className='descriptor'>A little</div>
                                 <h2 className='title'>About Me</h2>
-                                <h3 className='subtitle'></h3>
                             <Button enabled={true} onClick={this.onDownloadPDFClick}>
                                 <Flex alignItems='center'><Icon.DownloadCloud style={{marginRight:12}}/>DOWNLOAD .PDF RESUME</Flex>
                             </Button>
@@ -195,10 +200,10 @@ class HomePage extends Component<HomePageProps, any> {
                             <div className='heading-section-item light'>
                                 <h2 className='title'>Want to get in touch?</h2>
                                 <h3 className='subtitle' style={{marginBottom:48}}>
-                                    Shoot me an e-mail or fill out a contact form and I'll get back to you as soon as possible!
+                                    Shoot me an e-mail and I'll get back to you as soon as possible!
                                 </h3>
-                                <Button enabled={true} onClick={() => BrowserRouter.push(BrowserRoutes.work)}>
-                                    ME@DAVONBARNETTE.COM
+                                <Button enabled={true} onClick={() => AppActions.redirect('mailto:davonbarnette@gmail.com', false)}>
+                                    DAVONBARNETTE@GMAIL.COM
                                 </Button>
                             </div>
                         </section>

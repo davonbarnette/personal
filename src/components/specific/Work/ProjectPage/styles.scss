@@ -16,6 +16,13 @@
       @include font(60px, 600, 0, $dark-gray);
       margin-bottom:24px;
       font-family: Sarabun,sans-serif;
+
+      @include mq-screen-lt($screen-md-min) {
+        @include font(48px, 600, 0em, $primary-text-color);
+      }
+      @include mq-screen-lt($screen-sm-min) {
+        @include font(36px, 600, 0em, $primary-text-color);
+      }
     }
 
     .dates {
@@ -32,6 +39,13 @@
     .links {
       @include flex(row, flex-start, center);
       margin-bottom:48px;
+
+      .git{
+        margin-left:24px;
+        &:hover{
+          cursor: pointer;
+        }
+      }
     }
 
     .embeds {

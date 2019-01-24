@@ -41,15 +41,15 @@ class ProjectPage extends Component<ProjectPageProps, any> {
         })
     }
 
-    onSiteClick = () => {
-        AppActions.redirect(this.project!.link)
+    onSiteClick = (url:string) => {
+        AppActions.redirect(url);
     };
 
     get links() {
         let ret = [];
         if (this.project!.link) ret.push(
-            <Button enabled={true} onClick={this.onSiteClick}>GO TO SITE</Button>);
-        if (this.project!.github) ret.push(<Icon.GitHub/>);
+            <Button key={1} enabled={true} onClick={()=>this.onSiteClick(this.project!.link)}>GO TO SITE</Button>);
+        if (this.project!.github) ret.push(<Icon.GitHub key={2} className='git' onClick={()=>this.onSiteClick(this.project!.github)}/>);
         return ret;
     }
 
@@ -59,7 +59,7 @@ class ProjectPage extends Component<ProjectPageProps, any> {
         return(
             <section className='project-page'>
                 <div className='content'>
-                    <div className='title'>{this.project.name}</div>
+                    <div className='title'>{this.project.name} ({this.project.type})</div>
                     <div className='dates'>{this.time}</div>
                     <div className='description'>
                         {this.project.description}

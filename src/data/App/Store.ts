@@ -5,12 +5,16 @@ import FirestoreManager from "../../global/managers/Firebase/FirestoreManager";
 import {FirestoreAuthType} from "../../global/managers/Firebase/Types";
 import FirestoreDataManager from "../../global/managers/Firebase/FirestoreDataManager";
 import {FIRESTORE_ROUTING} from "../Routers/FirestoreRouting";
+import {AssetLocationType} from "./Types";
 
 class AppStoreClass {
 
     /* Data Types */
 	work: BaseMapManager<string, WorkType> = new BaseMapManager("id");
-	workFS?: FirestoreDataManager<WorkType>;
+	FS_work?: FirestoreDataManager<WorkType>;
+
+	assetLocations:BaseMapManager<string, AssetLocationType> = new BaseMapManager('id');
+	FS_assetLocations?: FirestoreDataManager<AssetLocationType>;
 
 	firestore: FirestoreManager;
     drawer?:    string;

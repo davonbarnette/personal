@@ -8,7 +8,7 @@ import {RouteComponentProps, withRouter} from "react-router";
 export const MAIN_HEADER_ITEMS:SingleHeaderItem[] = [
     {redirect: 'https://github.com/davonbarnette', label:'github', icon:(color:string)=><Icon.GitHub color={color} size={18}/>},
     {redirect: 'https://www.linkedin.com/in/davon-barnette-bb73b2156/', label:'linkedin', icon:(color:string)=><Icon.Linkedin color={color} size={18}/>},
-    {redirect: 'mailto:davonbarnette@gmail.com', label:'email', icon:(color:string)=><Icon.Mail color={color} size={18}/>},
+    {redirect: 'mailto:davonbarnette@gmail.com', sameWindow:true, label:'email', icon:(color:string)=><Icon.Mail color={color} size={18}/>},
 ];
 
 interface AppHeaderProps extends RouteComponentProps {

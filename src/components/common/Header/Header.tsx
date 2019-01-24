@@ -41,14 +41,14 @@ class Header extends Component<HeaderProps, any> {
         const {headerItems} = this.props;
 
         return headerItems.map((item:SingleHeaderItem, key:number) => {
-            const { path, label, icon, redirect } = item;
+            const { path, label, icon, redirect, sameWindow } = item;
 
             let onClick = (e:MouseEvent) => {
                 e.stopPropagation();
                 if (redirect) {
                     let link = document.createElement("a");
                     link.href = redirect;
-                    link.target = '_blank';
+                    if (!sameWindow) link.target = '_blank';
 
                     document.body.appendChild(link);
                     link.click();

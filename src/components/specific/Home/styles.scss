@@ -90,6 +90,11 @@
 .heading-section-item {
   @include flex(column, flex-start, center);
 
+  &.left-aligned {
+    @include scale-max-content-width;
+    @include flex(column, flex-start, flex-start);
+  }
+
   &.light {
     .title {
       color: $primary-button-bg-color;

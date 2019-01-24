@@ -12,18 +12,22 @@ export default class AppActions {
 
     static downloadResume(){
         let downloadLink = document.createElement("a");
-        downloadLink.href = 'https://www.dropbox.com/s/l0y2nnsggmr9gzp/resume_1_22_19.pdf?raw=1';
-        downloadLink.download = 'davon_barnette_resume_2019.pdf';
 
-        document.body.appendChild(downloadLink);
-        downloadLink.click();
-        document.body.removeChild(downloadLink);
+        let resumeLocation = AppStore.assetLocations.getById('resume');
+        if (resumeLocation) {
+            downloadLink.href = resumeLocation.url;
+            downloadLink.download = 'davon_barnette_resume_2019.pdf';
+
+            document.body.appendChild(downloadLink);
+            downloadLink.click();
+            document.body.removeChild(downloadLink);
+        }
     }
 
-    static redirect(url:string) {
+    static redirect(url:string, blank = true) {
         let link = document.createElement("a");
         link.href = url;
-        link.target = '_blank';
+        if (blank) link.target = '_blank';
 
         document.body.appendChild(link);
         link.click();
