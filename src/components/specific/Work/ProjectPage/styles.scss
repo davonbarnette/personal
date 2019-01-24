@@ -2,33 +2,54 @@
 
 .project-page {
   @include flex(column, flex-start, center);
-  @include max-size;
-  @include pad-box(24px);
+  @include pad-box(48px 24px);
+  background:white;
+  width:100%;
 
-  .description {
-    @include font(14px, 500, 0, white);
-    margin-bottom:24px;
-    width:100%;
-    max-width:700px;
-  }
+  .content {
+    display:flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 700px;
 
-  .embeds {
-    width:100%;
-    max-width:700px;
-    .project-embed-container {
+    .title {
+      @include font(60px, 600, 0, $dark-gray);
       margin-bottom:24px;
-
+      font-family: Sarabun,sans-serif;
     }
 
-    .project-embed-video {
-      background: black;
-      border-radius: 5px;
-      padding-bottom: 56.25%;
-      padding-top: 25px;
-      box-shadow: 0 7px 14px rgba(50, 50, 93, .1), 0 3px 6px rgba(0, 0, 0, .08);
+    .dates {
+      @include font(14px, 500, 0, #7086ad);
+      margin-bottom: 6px;
+    }
+
+    .description {
+      @include font(14px, 500, 0, $medium-gray);
+      font-family: "Open Sans", sans-serif;
+      margin-bottom: 48px;
+    }
+
+    .links {
+      @include flex(row, flex-start, center);
+      margin-bottom:48px;
+    }
+
+    .embeds {
+      .project-embed-container {
+        @include box-shadow-2;
+        margin-bottom: 48px;
+
+      }
+
+      .project-embed-video {
+        background: black;
+        border-radius: 5px;
+        padding-bottom: 56.25%;
+        padding-top: 25px;
+        box-shadow: 0 7px 14px rgba(50, 50, 93, .1), 0 3px 6px rgba(0, 0, 0, .08);
+      }
     }
   }
-
 
 
 }

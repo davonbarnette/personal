@@ -9,6 +9,7 @@ export interface WorkType {
     end_date?:string,
     banner?:string,
     type?:'job'|'freelance'|'personal'
+    github:string,
 }
 
 export interface EmbedType {

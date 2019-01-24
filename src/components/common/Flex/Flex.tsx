@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component, ComponentProps} from 'react';
 import cx from 'classnames';
 import {AlignItemsProperty, FlexDirectionProperty, JustifyContentProperty} from "csstype";
 import './styles.scss';

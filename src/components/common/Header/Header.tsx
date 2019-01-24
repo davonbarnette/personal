@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import BrowserRouter from "../../../data/Routers/BrowserRouter";
+import BrowserRouter, {BrowserRoutes} from "../../../data/Routers/BrowserRouter";
 import {RouteComponentProps, withRouter} from "react-router";
 import cx from 'classnames';
 import * as Icon from 'react-feather';
@@ -67,9 +67,9 @@ class Header extends Component<HeaderProps, any> {
         return(
             <section className='header-component'>
                 <section className='header-component-content'>
-                    <Flex className='left-nav'>
+                    <div className='left-nav' onClick={()=>BrowserRouter.push(BrowserRoutes.home)}>
                         <span className='second'>davon</span><span>barnette</span>
-                    </Flex>
+                    </div>
                     <Flex className='right-nav' flexDirection='row' justifyContent='flex-end' alignItems='center'>
                         <div className='full-text-nav'>{this.navItems}</div>
                         <Icon.Menu className='hamburger-nav'/>

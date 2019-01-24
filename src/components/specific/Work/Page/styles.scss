@@ -8,17 +8,20 @@
   .work-content{
     @include max-size;
 
+
     &-header{
-      @include flex(column, flex-start, flex-start);
+      @include flex(column, center, center);
       @include font(24px, 600, 0, $dark-gray);
       @include border(none none solid none);
+      @include pad-box(24px);
       background:white;
       .header {
         @include flex(row, center, center);
-        @include pad-box(24px);
+        max-width:700px;
+        width: 100%;
         background: white;
         position: relative;
-        width: 100%;
+
         .header-content {
           @include flex(row, space-between, center);
           @include scale-max-content-width;

@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {observer} from "mobx-react";
-import {Redirect, Route, RouteComponentProps, Switch, withRouter} from "react-router";
+import {RouteComponentProps, withRouter} from "react-router";
 
 import './styles.scss';
 
@@ -24,7 +24,7 @@ class WorkPage extends Component<WorkPageProps, any> {
 
         return (
             <Flex className='work-content' flexDirection='column'>
-                <ContentHeader workId={workId}/>
+                {/*<ContentHeader workId={workId}/>*/}
                 <Scrollable scrollY>
                     {/*<Switch>*/}
                         {/*/!**/}

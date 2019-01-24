@@ -20,4 +20,14 @@ export default class AppActions {
         document.body.removeChild(downloadLink);
     }
 
+    static redirect(url:string) {
+        let link = document.createElement("a");
+        link.href = url;
+        link.target = '_blank';
+
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    }
+
 }

@@ -117,9 +117,6 @@ class HomePage extends Component<HomePageProps, any> {
                                 <h3 className='subtitle'>Currently designing and developing applications for OsmosisAI,
                                     a company centered around Vision AI for enterprise.
                                 </h3>
-                                <Button enabled={true} onClick={() => BrowserRouter.push(BrowserRoutes.work)}>
-                                    EXPLORE WORK
-                                </Button>
                             </div>
                             <div className='right' style={{backgroundImage: this.titleBackground}}/>
 
@@ -131,11 +128,8 @@ class HomePage extends Component<HomePageProps, any> {
                             <div className='heading-section-item light'>
                                 <h2 className='title'>Featured Work</h2>
                                 <h3 className='subtitle' style={{marginBottom:48}}>
-                                    Most of my work is centered around my 2 previous jobs. However, I regularly take on freelancing and personal projects in my spare time.
+                                    Here are some of my recent works. Click on the images to get a deeper dive into how I approached these projects, or what my responsibilities were.
                                 </h3>
-                                <Button enabled={true} onClick={() => BrowserRouter.push(BrowserRoutes.work)}>
-                                    ALL EXPERIENCE
-                                </Button>
                             </div>
                             <ul className='flex-wrapped-2'>
                                 {this.projects}
