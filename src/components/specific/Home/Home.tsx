@@ -116,8 +116,8 @@ class HomePage extends Component<HomePageProps, any> {
                     <div className='full-width'>
                         <section className='hero'>
                             <div className='left'>
-                                <div className='descriptor'>Austin, TX</div>
-                                <h2 className='title'>UI/UX Designer & Full Stack Engineer</h2>
+                                <div className='descriptor'>Atlanta, GA</div>
+                                <h2 className='title'>Software Engineer</h2>
                                 <h3 className='subtitle'>Currently designing and developing applications for OsmosisAI,
                                     a company centered around Vision AI for enterprise.
                                 </h3>
@@ -164,7 +164,7 @@ class HomePage extends Component<HomePageProps, any> {
                                         <Icon.Briefcase color='#3a3a3a' style={{marginRight:12}}/>
                                         <h3>Work Experience</h3>
                                     </Flex>
-                                    <p><strong>SkillCapped (2014-2017) | OsmosisAI (2018-now)</strong>. Lead Designer & Full Stack Engineering. I've been in charge of concept (UI/UX) all the way up to execution (React/Node). This is most likely where I bring the most value - I understand both roles, and can reason through how they should connect.</p>
+                                    <p><strong>SkillCapped (2014-2018) | OsmosisAI (2018-now)</strong>. Lead Designer & Full Stack Engineering. I've been in charge of concept (UI/UX) all the way up to execution (React/Node). This is most likely where I bring the most value - I understand both roles, and can reason through how they should connect.</p>
                                 </div>
                             </div>
                             <div className='item'>
